@@ -3,6 +3,15 @@ import tweetsData from './data.js'
 const containerEl = document.getElementById("container")
 const konnectBtn = document.getElementById("konnect-btn")
 
+const users = new GetCharacters()
+
+
+function render() {
+    containerEl.innerHTML = users.getCharactersHtml()
+}
+
+render()
+
 konnectBtn.addEventListener("click", () => {
     const tweetInput  = document.getElementById("tweet-input")
     if (tweetInput.value) {
@@ -40,9 +49,9 @@ function GetCharacters() {
     
     this.handleClicks = (e) => {
         if (e.target.dataset.like) {
-            handleLikes(e.target.dataset.like)
+            this.handleLikes(e.target.dataset.like)
         } else if (e.target.dataset.retweet) {
-            handleRetweet(e.target.dataset.retweet)
+            this.handleRetweet(e.target.dataset.retweet)
         }
     
         render()
@@ -104,11 +113,3 @@ function GetCharacters() {
     }
 }
 
-const users = new GetCharacters()
-
-
-function render() {
-    containerEl.innerHTML = users.getCharactersHtml()
-}
-
-render()
