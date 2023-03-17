@@ -27,36 +27,13 @@ konnectBtn.addEventListener("click", () => {
 })
 
 
-function sortStatClicks() {
-    this.handleClicks = (e) => {
-        if (e.target.dataset.like) {
-            handleLikes(e.target.dataset.like)
-        } else if (e.target.dataset.retweet) {
-            handleRetweet(e.target.dataset.retweet)
-        }
-    
-        render()
-    }
-}
+
 
 document.addEventListener("click", handleClicks)
 
 
 
-function handleLikes(tweetId) {
-    const targetObject = tweetsData.filter((tweet) => {
-        if (tweetId === tweet.uuid) {
-            return tweet
-        }
-    })[0]
 
-    if (targetObject.isLiked) {
-        targetObject.likes --
-        targetObject.isLiked = false
-    } else {
-        targetObject.likes ++
-        targetObject.isLiked = true
-    }
 
     
     
@@ -80,9 +57,18 @@ function handleRetweet(tweetId) {
 
 
 
-function getCharacters(data) {
-    Object.assign(this, data)
+function getCharacters() {
+    // Object.assign(this, data)
     
+    this.handleClicks = (e) => {
+        if (e.target.dataset.like) {
+            handleLikes(e.target.dataset.like)
+        } else if (e.target.dataset.retweet) {
+            handleRetweet(e.target.dataset.retweet)
+        }
+    
+        render()
+    }
 
     this.getCharactersHtml = () => {
         const tweetsHtml = tweetsData.map((tweet) => {
