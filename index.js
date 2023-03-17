@@ -33,10 +33,20 @@ document.addEventListener("click", handleClicks)
 
 
 
+function handleLikes(tweetId) {
+    const targetObject = tweetsData.filter((tweet) => {
+        if (tweetId === tweet.uuid) {
+            return tweet
+        }
+    })[0]
 
-
-    
-    
+    if (targetObject.isLiked) {
+        targetObject.likes --
+        targetObject.isLiked = false
+    } else {
+        targetObject.likes ++
+        targetObject.isLiked = true
+    } 
 }
 
 function handleRetweet(tweetId) {
