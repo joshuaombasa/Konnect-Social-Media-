@@ -78,7 +78,7 @@ function handleRetweet(tweetId) {
 
 function render() {
     const tweetsHtml = tweetsData.map((tweet) => {
-        const {profilePic, handle, tweetText,likes, retweets, replies} = tweet
+        const {profilePic, handle, tweetText,likes, retweets, replies, uuid} = tweet
         return`
     <div class="tweetContainer" id="tweetContainer">
         <img src="${profilePic}"  class="profile-pic" id="profile-pic">
@@ -86,8 +86,8 @@ function render() {
             <p class="handle" id="handle">${handle}</p>
             <p class="tweetText">${tweetText}</p>
             <div class="tweetStats">
-                <small class="tweetStatLike"   data-like="${tweet.uuid}">${likes}</small>
-                <small class="tweetStatRetweet"  data-retweet="${tweet.uuid}">${retweets}</small>
+                <small class="tweetStatLike"   data-like="${uuid}">${likes}</small>
+                <small class="tweetStatRetweet"  data-retweet="${uuid}">${retweets}</small>
                 <small class="tweetStatReply"  >${replies.length}</small>
             </div>
         </div>
