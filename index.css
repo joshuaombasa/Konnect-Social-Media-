@@ -1,0 +1,108 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.siteName {
+    color: rgb(81, 81, 224);
+    margin-left: 30px;
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+
+.logo-container {
+    display: flex;
+    background-color: rgb(81, 81, 226);
+    color: whitesmoke;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 30px;
+}
+
+.logo {
+    margin: auto;
+}
+
+.logo-textArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+textarea {
+    width: 80%;
+    height: 100px;
+    margin-right: 20px;
+    border: 1px solid rgb(174, 178, 235);
+    border-radius: 5px;
+    resize: none;
+}
+
+.btn-container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.konnect-btn {
+    width: 100%;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: rgb(110, 110, 239);
+    color: whitesmoke;
+    border-radius: 30px;
+    border: none;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.tweetContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tweettextArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tweettextArea p {
+    padding: 0;
+    margin-top: 0;
+}
+
+.tweetStats {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.tweetStats small {
+    width: 40px;
+}
+
+.tweetStats small:hover {
+    cursor: pointer;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.handle {
+    color: black;
+    font-weight: bold;
+}
