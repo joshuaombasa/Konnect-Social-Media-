@@ -77,31 +77,33 @@ function getCharacters(data) {
     Object.assign(this, data)
 
     this.getCharactersHtml = () => {
-        
+        const tweetsHtml = tweetsData.map((tweet) => {
+            const {profilePic, handle, tweetText,likes, retweets, replies, uuid} = tweet
+            return`
+        <div class="tweetContainer" id="tweetContainer">
+            <img src="${profilePic}"  class="profile-pic" id="profile-pic">
+            <div class="tweettextArea" id="tweettextArea">
+                <p class="handle" id="handle">${handle}</p>
+                <p class="tweetText">${tweetText}</p>
+                <div class="tweetStats">
+                    <small class="tweetStatLike"   data-like="${uuid}">${likes}</small>
+                    <small class="tweetStatRetweet"  data-retweet="${uuid}">${retweets}</small>
+                    <small class="tweetStatReply"  >${replies.length}</small>
+                </div>
+            </div>
+        </div>
+            `
+        }).join('')
+
+        return tweetsHtml
     }
 }
 
+const users = new getCharacters(tweetsData)
+
 
 function render() {
-    const tweetsHtml = tweetsData.map((tweet) => {
-        const {profilePic, handle, tweetText,likes, retweets, replies, uuid} = tweet
-        return`
-    <div class="tweetContainer" id="tweetContainer">
-        <img src="${profilePic}"  class="profile-pic" id="profile-pic">
-        <div class="tweettextArea" id="tweettextArea">
-            <p class="handle" id="handle">${handle}</p>
-            <p class="tweetText">${tweetText}</p>
-            <div class="tweetStats">
-                <small class="tweetStatLike"   data-like="${uuid}">${likes}</small>
-                <small class="tweetStatRetweet"  data-retweet="${uuid}">${retweets}</small>
-                <small class="tweetStatReply"  >${replies.length}</small>
-            </div>
-        </div>
-    </div>
-        `
-    }).join('')
-    
-    containerEl.innerHTML = tweetsHtml
+    containerEl.innerHTML = users.getCharactersHtml()
 }
 
 render()
