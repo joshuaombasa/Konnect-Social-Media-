@@ -29,45 +29,13 @@ konnectBtn.addEventListener("click", () => {
 
 
 
-document.addEventListener("click", handleClicks)
+document.addEventListener("click", users.handleClicks)
 
 
 
-function handleLikes(tweetId) {
-    const targetObject = tweetsData.filter((tweet) => {
-        if (tweetId === tweet.uuid) {
-            return tweet
-        }
-    })[0]
-
-    if (targetObject.isLiked) {
-        targetObject.likes --
-        targetObject.isLiked = false
-    } else {
-        targetObject.likes ++
-        targetObject.isLiked = true
-    } 
-}
-
-function handleRetweet(tweetId) {
-    const targetObject = tweetsData.filter((tweet) => {
-        if (tweetId === tweet.uuid) {
-            return tweet
-        }
-    })[0]
-
-    if (targetObject.isRetweeted) {
-        targetObject.retweets --
-        targetObject.isRetweeted = false
-    } else {
-        targetObject.isRetweeted = true
-        targetObject.retweets ++
-    }
-}
 
 
-
-function getCharacters() {
+function GetCharacters() {
     // Object.assign(this, data)
     
     this.handleClicks = (e) => {
@@ -79,6 +47,39 @@ function getCharacters() {
     
         render()
     }
+
+    this.handleLikes = (tweetId) => {
+        const targetObject = tweetsData.filter((tweet) => {
+            if (tweetId === tweet.uuid) {
+                return tweet
+            }
+        })[0]
+    
+        if (targetObject.isLiked) {
+            targetObject.likes --
+            targetObject.isLiked = false
+        } else {
+            targetObject.likes ++
+            targetObject.isLiked = true
+        } 
+    }
+
+    this.handleRetweet = (tweetId) => {
+        const targetObject = tweetsData.filter((tweet) => {
+            if (tweetId === tweet.uuid) {
+                return tweet
+            }
+        })[0]
+    
+        if (targetObject.isRetweeted) {
+            targetObject.retweets --
+            targetObject.isRetweeted = false
+        } else {
+            targetObject.isRetweeted = true
+            targetObject.retweets ++
+        }
+    }
+    
 
     this.getCharactersHtml = () => {
         const tweetsHtml = tweetsData.map((tweet) => {
@@ -103,7 +104,7 @@ function getCharacters() {
     }
 }
 
-const users = new getCharacters(tweetsData)
+const users = new GetCharacters()
 
 
 function render() {
