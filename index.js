@@ -75,7 +75,7 @@ function handleRetweet(tweetId) {
 
 function getCharacters(data) {
     Object.assign(this, data)
-    console.log( this.length)
+console.log(data.length)
 
     this.getCharactersHtml = () => {
         const tweetsHtml = tweetsData.map((tweet) => {
