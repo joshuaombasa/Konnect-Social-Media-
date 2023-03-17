@@ -12,40 +12,36 @@ function render() {
 
 render()
 
-konnectBtn.addEventListener("click", () => {
-    const tweetInput  = document.getElementById("tweet-input")
-    if (tweetInput.value) {
-        tweetsData.unshift(
-            {
-                handle: `@EngineerOmbasa`,
-                profilePic: `images/love.png`,
-                likes: 0,
-                retweets: 0,
-                tweetText: tweetInput.value,
-                replies: [],
-                isLiked: false,
-                isRetweeted: false,
-                uuid: 1237136151755646e6
-            }
-        )
-
-        render()
-
-        tweetInput.value = ''
-    }
-})
-
-
-
+konnectBtn.addEventListener("click", users.handleNewConnect)
 
 document.addEventListener("click", users.handleClicks)
 
 
-
-
-
 function GetCharacters() {
     // Object.assign(this, data)
+
+    this.handleNewConnect = () => {
+        const tweetInput  = document.getElementById("tweet-input")
+        if (tweetInput.value) {
+            tweetsData.unshift(
+                {
+                    handle: `@EngineerOmbasa`,
+                    profilePic: `images/love.png`,
+                    likes: 0,
+                    retweets: 0,
+                    tweetText: tweetInput.value,
+                    replies: [],
+                    isLiked: false,
+                    isRetweeted: false,
+                    uuid: 1237136151755646e6
+                }
+            )
+    
+            render()
+    
+            tweetInput.value = ''
+        }
+    }
     
     this.handleClicks = (e) => {
         if (e.target.dataset.like) {
