@@ -73,7 +73,13 @@ function handleRetweet(tweetId) {
     }
 }
 
+function getCharacters(data) {
+    Object.assign(this, data)
 
+    this.getCharactersHtml = () => {
+        
+    }
+}
 
 
 function render() {
